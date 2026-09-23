@@ -1,0 +1,44 @@
+{
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.outputPath": ".vscode/out",
+    "java.templates.newFile.enabled": false,
+    "java.project.sourcePaths": [
+        "Tasks",
+        "Operators",
+        "OOP",
+        "Methods",
+        "Input",
+        "Formatting",
+        "Flowcontrol",
+        "Coursework/Final",
+        "Coursework",
+        "Casting",
+        "Basics",
+        "Assignment",
+        "Arrays",
+        "ArraySorting",
+        "swing"
+    ],
+    "code-runner.executorMap": {
+        "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
+    },
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.respectShebang": false,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+            "default": true
+        },
+        {
+            "name": "JavaSE-25",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home"
+        },
+        {
+            "name": "JavaSE-26",
+            "path": "/opt/homebrew/Cellar/openjdk/26.0.1/libexec/openjdk.jdk/Contents/Home"
+        }
+    ]
+}
