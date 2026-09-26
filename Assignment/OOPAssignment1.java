@@ -10,8 +10,8 @@ public class OOPAssignment1{
        01. 
 
        a) Class / Template
-          A class is a blueprint (template) that describes the state
-          (attributes) and the behaviour (methods) that the objects of
+          A class is a blueprint  that describes the state
+          (attributes) and the  methods that the objects of
           that class will have. It does not hold real data; it only
           defines the structure. Declared with the `class` keyword.
               class Box{
@@ -35,13 +35,13 @@ public class OOPAssignment1{
               }
 
        d) Attributes / Properties
-          Attributes are the data holders (variables) declared inside a
+          Attributes are the data  variables declared inside a
           class that describe the state of an object. In Java they are
           called fields or variables; in other languages properties.
               int length;    // attribute of Box
 
        e) Reference Variables
-          A variable that holds the memory address (reference) of an
+          A variable that holds the memory address  of an
           object instead of a value. Declared with a class (object)
           type. The default value of a reference variable is null.
               Box b1;              // b1 is a reference variable
@@ -112,19 +112,19 @@ public class OOPAssignment1{
               class Test{ static int y = 20; }
 
        n) Instance Variables
-          Variables declared WITHOUT the `static` keyword. Every object
-          of the class gets its OWN separate copy, and each copy is
+          Variables declared without the `static` keyword. Every object
+          of the class gets its own separate copy, and each copy is
           accessed through the object reference.
               class Test{ int x = 10; }
     */
 
     /*
-       04. Difference between "attributes" and "methods" in a Java object
+       04. 
            (real-world examples)
        ATTRIBUTES store DATA (state). They hold values and describe WHAT
        the object currently is. They have no behaviour and are not called.
 
-       METHODS store BEHAVIOUR (actions). They contain a block of code
+       METHODS store behaviour (actions). They contain a block of code
        and describe WHAT the object can DO.
 
        Real-world example - a Bank Account:
@@ -151,7 +151,7 @@ public class OOPAssignment1{
     */
 
     /*
-       12. Purpose of a constructor in a Java class
+       12. 
        A constructor is a special method that has the same name as the
        class, has NO return type, and is called automatically by the
        `new` keyword when an object is created.
@@ -159,12 +159,12 @@ public class OOPAssignment1{
        PURPOSES OF A CONSTRUCTOR
          1. To give a newly created object a VALID INITIAL STATE - the
             object can never exist with meaningless data.
-         2. To INITIALISE the attributes of the object, either with
+         2. To initiate the attributes of the object, either with
             declaration values, a default no-argument constructor, or a
             parameterised constructor.
          3. To enforce RULES at creation time (e.g. a length must be
             positive) so invalid objects cannot be built.
-         4. To allow OBJECT INITIALISATION OVERLOADING - `new Box()`,
+         4. To allow OBJECT  OVERLOADING - `new Box()`,
             `new Box(5,4,3)`, `new Box(10)`.
          5. To perform any setup work the object needs before use.
 
@@ -174,16 +174,15 @@ public class OOPAssignment1{
                Box(){                        // default constructor
                    length = 2; width = 2; height = 2;
                }
-               Box(int l,int w,int h){       // parameterised constructor
+               Box(int l,int w,int h){       
                    length = l; width = w; height = h;
                }
            }
-       Note: If NO constructor is declared, the compiler provides a
-       default no-argument constructor automatically.
+       
     */
 
     /*
-       13. Difference between "constructors" and "methods" in a Java object
+       13.
                           CONSTRUCTOR                METHOD
        ------------------------------------------------------------------
        Purpose      Initialises an object         Performs a task/operation
@@ -207,7 +206,7 @@ public class OOPAssignment1{
     */
 
     /*
-       23. Describe "encapsulation", the key concept of OOP
+       23. 
        Encapsulation is the concept of BUNDLING data (attributes) and
        the methods that operate on that data together inside a single
        unit (a class), and then PROTECTING the data from direct,
@@ -244,7 +243,7 @@ public class OOPAssignment1{
     */
 
     /*
-       24. Difference between "tightly encapsulated" and "loosely
+       24.
            encapsulated" classes
        TIGHTLY ENCAPSULATED
          - Every attribute is declared `private`.
@@ -274,8 +273,7 @@ public class OOPAssignment1{
              // outside:
              b1.length = -50;   // illegal value accepted with no complaint
 
-       In short: tightly encapsulated = data private + controlled access
-       through methods; loosely encapsulated = data exposed directly.
+     
     */
 
     /*
@@ -317,7 +315,7 @@ public class OOPAssignment1{
     */
 
     /*
-       37. Difference between "static methods" and "instance methods"
+       37. 
        Keyword        Static method is declared with the `static`
                       keyword; an instance method is declared without it.
        Belonging to   A static method belongs to the CLASS.
@@ -352,7 +350,7 @@ public class OOPAssignment1{
     */
 
     /*
-       45. "Method call by value" vs "method call by reference"
+       45. 
        CALL BY VALUE
          A COPY of the argument is passed to the parameter. The method
          works on its own copy, so the original variable is NEVER
