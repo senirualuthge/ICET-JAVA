@@ -3,9 +3,12 @@
     "java.project.outputPath": ".vscode/out",
     "java.templates.newFile.enabled": false,
     "java.project.sourcePaths": [
+        "swing",
         "Tasks",
+        "Singleton Desing",
         "Operators",
         "OOP",
+        "NetBeans/Student Mark Management System/${test.src.dir}",
         "Methods",
         "Input",
         "Formatting",
@@ -17,7 +20,7 @@
         "Assignment",
         "Arrays",
         "ArraySorting",
-        "swing"
+        "NetBeans/Student Mark Management System/src/studentMarkManagementMystem"
     ],
     "code-runner.executorMap": {
         "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
