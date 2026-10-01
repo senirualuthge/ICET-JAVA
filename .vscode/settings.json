@@ -8,9 +8,11 @@
         "Singleton Desing",
         "Operators",
         "OOP",
+        "NetBeans/Student Mark Management System/src/studentMarkManagementMystem",
         "NetBeans/Student Mark Management System/${test.src.dir}",
         "Methods",
         "Input",
+        "I/O",
         "Formatting",
         "Flowcontrol",
         "Coursework/Final",
@@ -20,7 +22,7 @@
         "Assignment",
         "Arrays",
         "ArraySorting",
-        "NetBeans/Student Mark Management System/src/studentMarkManagementMystem"
+        "Input\\Output"
     ],
     "code-runner.executorMap": {
         "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
@@ -40,8 +42,8 @@
             "path": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home"
         },
         {
-            "name": "JavaSE-26",
-            "path": "/opt/homebrew/Cellar/openjdk/26.0.1/libexec/openjdk.jdk/Contents/Home"
+            "name": "JavaSE-27",
+            "path": "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
         }
     ]
 }

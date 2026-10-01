@@ -17,7 +17,7 @@ public class AddStudentForm extends javax.swing.JFrame {
      */
     public AddStudentForm() {
         initComponents();
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         loadBatches();
     }
