@@ -21,8 +21,21 @@ public class AddStudentForm extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        generateStudentId();
+        txtId.setEnabled(false);
     }
-
+    private void generateStudentId(){
+        Student[] allStudent = AccessStudentCollection.getInstance().getStudentCollection().getAllStudent();
+        if(allStudent.length==0){
+            txtId.setText("S0001");
+        }else{
+            String lastStudentId=allStudent[allStudent.length-1].getId();
+            int lastStudentIdNum=Integer.parseInt(lastStudentId.substring(1));
+            String newStudentId=String.format("S%04d", lastStudentIdNum+1);
+            txtId.setText(newStudentId);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +67,11 @@ public class AddStudentForm extends javax.swing.JFrame {
         jLabel2.setText("Student ID");
 
         txtId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Name");
@@ -167,6 +185,10 @@ public class AddStudentForm extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        txtName.requestFocus();
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments

@@ -54,6 +54,11 @@ public class SearchStudentForm extends javax.swing.JFrame {
         jLabel2.setText("Student ID");
 
         txtId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Name");
@@ -168,6 +173,10 @@ public class SearchStudentForm extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        btnSearchStudent.doClick();
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments
