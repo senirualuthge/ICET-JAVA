@@ -551,6 +551,8 @@ interface CoreRefreshable {
         Center -> the content of the screen
         South  -> the buttons                                 */
 class CoreScreen extends JPanel implements CoreRefreshable {
+    private static final long serialVersionUID = 1L;
+
 
     protected final CoreManagementSystem app;
 
@@ -628,6 +630,8 @@ class CoreScreen extends JPanel implements CoreRefreshable {
 
 /* ================= 1. HOME PAGE ================= */
 class CoreHomePage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     CoreHomePage(CoreManagementSystem app) {
         super(app);
@@ -650,6 +654,8 @@ class CoreHomePage extends CoreScreen {
 
 /* ================= 2. STUDENT MANAGEMENT ================= */
 class StudentManagementPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     StudentManagementPage(CoreManagementSystem app) {
         super(app);
@@ -669,6 +675,8 @@ class StudentManagementPage extends CoreScreen {
 
 /* ---------------- 2.1 Add Student ---------------- */
 class AddStudentPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JComboBox<Integer> cmbBatch;
     private JTextField txtNic;
@@ -783,6 +791,8 @@ class AddStudentPage extends CoreScreen {
 
 /* ---------------- 2.2 Update Student ---------------- */
 class UpdateStudentPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JTextField txtSearchId;
     private JLabel lblRegNo;
@@ -919,6 +929,8 @@ class UpdateStudentPage extends CoreScreen {
 
 /* ---------------- 2.3 View Student Profile ---------------- */
 class ViewStudentPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JTextField txtSearchId;
     private JLabel lblRegNo;
@@ -1003,6 +1015,8 @@ class ViewStudentPage extends CoreScreen {
 
 /* ---------------- 2.4 Delete Student Profile ---------------- */
 class DeleteStudentPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JTextField txtSearchId;
     private JLabel lblRegNo;
@@ -1126,6 +1140,8 @@ class DeleteStudentPage extends CoreScreen {
 
 /* ================= 3. BATCH MANAGEMENT ================= */
 class BatchManagementPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     BatchManagementPage(CoreManagementSystem app) {
         super(app);
@@ -1146,6 +1162,8 @@ class BatchManagementPage extends CoreScreen {
 
 /* ---------------- 3.1 Add Batch ---------------- */
 class AddBatchPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JTextField txtBatchNo;
 
@@ -1213,6 +1231,8 @@ class AddBatchPage extends CoreScreen {
 
 /* ---------------- 3.2 Update Batch ---------------- */
 class UpdateBatchPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private JTextField txtBatchNo;
     private JLabel lblBatchNo;
@@ -1323,6 +1343,8 @@ class UpdateBatchPage extends CoreScreen {
 
 /* ---------------- 3.3 View Batches ---------------- */
 class ViewBatchPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private DefaultTableModel model;
     private JTable table;
@@ -1360,6 +1382,8 @@ class ViewBatchPage extends CoreScreen {
 
 /* ================= 4. GRADE MANAGEMENT ================= */
 class GradeManagementPage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     GradeManagementPage(CoreManagementSystem app) {
         super(app);
@@ -1381,6 +1405,8 @@ class GradeManagementPage extends CoreScreen {
 /* The PRF and the DBMS screens work in exactly the same way, so one class
    handles both of them.  module = "PRF" or "DBMS" */
 class MarksUpdatePage extends CoreScreen {
+    private static final long serialVersionUID = 1L;
+
 
     private final String module;
     private JTextField txtSearchId;
@@ -1500,6 +1526,8 @@ class MarksUpdatePage extends CoreScreen {
 
 /* ================= MAIN WINDOW ================= */
 public class CoreManagementSystem extends JFrame {
+    private static final long serialVersionUID = 1L;
+
 
     private final CardLayout cards = new CardLayout();
     private final JPanel container = new JPanel(cards);

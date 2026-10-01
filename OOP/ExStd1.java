@@ -96,6 +96,8 @@ class AccessStudentCollection{
 }
 
 class ViewStudentDetailsForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTable tblStudentDetails;
 	private DefaultTableModel dtm;
 	

@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 class Cal2Frame extends JFrame{
+    private static final long serialVersionUID = 1L;
+
     JTextField txtDisplay;
     Cal2Frame() {
         setTitle("Calculator");

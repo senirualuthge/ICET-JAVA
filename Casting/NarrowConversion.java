@@ -6,7 +6,7 @@ class NarrowConversion{
 		System.out.println(age); //22
 		
 		long y=1000;
-		age+=y; //Legal->Wider conversion
+		age+=(int)y; //Legal->Wider conversion, explicit narrowing back to int
 	}
 }
 

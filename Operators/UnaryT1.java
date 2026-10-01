@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 class UnaryT1{
 	public static void main(String args[]){

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 
 public class OOPAssignment1{
@@ -915,6 +916,7 @@ public class OOPAssignment1{
     /*
        29. 
      */
+    @SuppressWarnings("static")
     static void q29() {
         System.out.println("---- Q29 ----");
         MyClass29 c1 = new MyClass29();
@@ -1772,6 +1774,7 @@ public class OOPAssignment1{
             System.out.println("instanceMethod");
         }
 
+        @SuppressWarnings("static")
         static void mainRun() {
             staticMethod();
             Demo31.staticMethod();

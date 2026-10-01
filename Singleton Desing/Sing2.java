@@ -104,6 +104,8 @@ class AccessStudentCollection{
 }
 
 class AddStudentForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTextField txtId;	
 	private JTextField txtName;	
 	private JTextField txtPrfMarks;	
@@ -196,6 +198,8 @@ class AddStudentForm extends JFrame{
 }
 
 class SearchStudentForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTextField txtId;	
 	private JTextField txtName;	
 	private JTextField txtPrfMarks;	
@@ -283,6 +287,8 @@ class SearchStudentForm extends JFrame{
 }
 
 class UpdateStudentForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTextField txtId;	
 	private JTextField txtName;	
 	private JTextField txtPrfMarks;	
@@ -385,6 +391,8 @@ class UpdateStudentForm extends JFrame{
 }
 
 class DeleteStudentForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTextField txtId;	
 	private JTextField txtName;	
 	private JTextField txtPrfMarks;	
@@ -459,6 +467,8 @@ class DeleteStudentForm extends JFrame{
 }
 
 class ViewStudentDetailsForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTable tblStudentDetails;
 	private DefaultTableModel dtm;
 	
@@ -505,6 +515,8 @@ class ViewStudentDetailsForm extends JFrame{
 }
 
 class StudentMainForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JButton btnAddStudentForm;
 	private JButton btnSearchStudentForm;
 	private JButton btnUpdateStudentForm;

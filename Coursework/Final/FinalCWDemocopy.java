@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 class FinalCWDemocopy {
     // Batch status

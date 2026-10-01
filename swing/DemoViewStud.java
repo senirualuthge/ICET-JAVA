@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 class ViewStudentDetailsForm extends JFrame{
+    private static final long serialVersionUID = 1L;
+
 	private JTable tblStudentDetails;
 	private DefaultTableModel dtm;
 	

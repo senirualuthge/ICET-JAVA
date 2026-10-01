@@ -32,7 +32,7 @@ class Student2{
 
 class Scanner2{
 	public static void main(String[] args)throws IOException {
-		File f1=new File("samre.txt");
+		File f1=new File("InOut/samre.txt");
 		java.util.Scanner input = new java.util.Scanner(f1);
 		while(input.hasNextLine()){
 			String line=input.nextLine();

@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 class SearchStudentForm extends JFrame {
+    private static final long serialVersionUID = 1L;
+
     private JTextField txtId;
     private JTextField txtName;
     private JTextField txtPrfMarks;

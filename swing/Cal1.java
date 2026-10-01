@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 class Cal1 extends JFrame {
+    private static final long serialVersionUID = 1L;
+
     Cal1() {
         setLayout(new BorderLayout());
 

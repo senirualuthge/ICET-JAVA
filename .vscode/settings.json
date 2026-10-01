@@ -9,10 +9,8 @@
         "Operators",
         "OOP",
         "NetBeans/Student Mark Management System/src/studentMarkManagementMystem",
-        "NetBeans/Student Mark Management System/${test.src.dir}",
         "Methods",
         "Input",
-        "I/O",
         "Formatting",
         "Flowcontrol",
         "Coursework/Final",
@@ -22,7 +20,7 @@
         "Assignment",
         "Arrays",
         "ArraySorting",
-        "Input\\Output"
+        "InOut"
     ],
     "code-runner.executorMap": {
         "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""

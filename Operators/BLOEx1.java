@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 class BLOEx1{
 	public static void main(String args[]){

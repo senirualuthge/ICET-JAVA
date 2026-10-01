@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 public class EX_1 {                                        // class name must match filename
     public static void main(String[] args) {               // entry point of the program

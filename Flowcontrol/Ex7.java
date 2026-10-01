@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
  public class Ex7 {
    
@@ -36,11 +37,11 @@ public static void main(String args[]) {
 		}
 		else if
 		
-			(month==2||month==4||month==6||month==9||month==11);{
+			(month==2||month==4||month==6||month==9||month==11){
 			System.out.println("30 days");
 				
 		}
-		 if  (month==2);{
+		 if  (month==2){
 			System.out.println("28 days");
     			
 		}

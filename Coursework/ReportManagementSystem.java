@@ -478,6 +478,8 @@ interface ReportScreen {
 
 /* base class of the three report screens */
 abstract class ReportPage extends JPanel implements ReportScreen {
+    private static final long serialVersionUID = 1L;
+
 
     protected final ReportManagementSystem app;
     protected final DefaultTableModel model;
@@ -530,6 +532,8 @@ abstract class ReportPage extends JPanel implements ReportScreen {
 
 /* ---- 4.1 Student Registration Report ---- */
 class RegistrationReportPage extends ReportPage {
+    private static final long serialVersionUID = 1L;
+
 
     RegistrationReportPage(ReportManagementSystem app) {
         super(app, "4.1  Student Registration Report");
@@ -553,6 +557,8 @@ class RegistrationReportPage extends ReportPage {
 
 /* ---- 4.2 Batch-wise Student Report ---- */
 class BatchReportPage extends ReportPage {
+    private static final long serialVersionUID = 1L;
+
 
     private JComboBox<Integer> cmbBatch;
 
@@ -602,6 +608,8 @@ class BatchReportPage extends ReportPage {
 
 /* ---- 4.3 Industry Training Eligibility Report ---- */
 class EligibilityReportPage extends ReportPage {
+    private static final long serialVersionUID = 1L;
+
 
     EligibilityReportPage(ReportManagementSystem app) {
         super(app, "4.3  Industry Training Eligibility Report");
@@ -631,6 +639,8 @@ class EligibilityReportPage extends ReportPage {
 
 /* ---- Report Management Home Page ---- */
 class ReportHomePage extends JPanel {
+    private static final long serialVersionUID = 1L;
+
 
     ReportHomePage(ReportManagementSystem app) {
         setLayout(new BorderLayout());
@@ -659,6 +669,8 @@ class ReportHomePage extends JPanel {
 
 /* ---------------- 6. Main window ---------------- */
 public class ReportManagementSystem extends JFrame {
+    private static final long serialVersionUID = 1L;
+
 
     private final CardLayout cards = new CardLayout();
     private final JPanel container = new JPanel(cards);

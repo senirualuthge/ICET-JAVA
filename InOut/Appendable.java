@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-class Delete {
+class Appendable {
     public static void main(String[] args) {
         try {
             // File f1 = new File("DTest.txt");
@@ -17,4 +17,3 @@ class Delete {
         }
     }
 }
-
