@@ -7,6 +7,9 @@ package studentMarkManagementMystem;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,8 +31,10 @@ public class AddStudentForm extends javax.swing.JFrame {
         txtId.setEditable(false);
         try {
             txtId.setText(StudentController.getNewStudentId());
-        } catch (FileNotFoundException ex) {
-            txtId.setText("S0001");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddStudentForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddStudentForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         txtName.requestFocus();
     }
@@ -170,9 +175,9 @@ public class AddStudentForm extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,12 +196,12 @@ public class AddStudentForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
-        String id = txtId.getText();
-        String name = txtName.getText();
-        int prfMarks = Integer.parseInt(txtPrfMarks.getText());
-        int dbmsMarks = Integer.parseInt(txtDbmsMarks.getText());
-        Student student = new Student(id, name, prfMarks, dbmsMarks);
         try {
+            String id = txtId.getText();
+            String name = txtName.getText();
+            int prfMarks = Integer.parseInt(txtPrfMarks.getText());
+            int dbmsMarks = Integer.parseInt(txtDbmsMarks.getText());
+            Student student = new Student(id, name, prfMarks, dbmsMarks);
             boolean isAdded = StudentController.addNewStudent(student);
             if (isAdded) {
                 JOptionPane.showMessageDialog(this, "Added Success");
@@ -206,8 +211,8 @@ public class AddStudentForm extends javax.swing.JFrame {
                 txtDbmsMarks.setText("");
                 txtName.requestFocus();
             }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Added Fail");
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
 
     }//GEN-LAST:event_btnAddStudentActionPerformed
@@ -241,7 +246,7 @@ public class AddStudentForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameFocusGained
 
     private void txtPrfMarksFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrfMarksFocusGained
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtPrfMarksFocusGained
 
     /**

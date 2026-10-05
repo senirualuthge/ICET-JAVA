@@ -1,6 +1,9 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
     "java.project.outputPath": ".vscode/out",
+    "java.project.referencedLibraries": [
+        "lib/mysql-connector-j-9.0.0.jar"
+    ],
     "java.templates.newFile.enabled": false,
     "java.project.sourcePaths": [
         "swing",
@@ -11,6 +14,7 @@
         "NetBeans/Student Mark Management System/src/studentMarkManagementMystem",
         "Methods",
         "Input",
+        "InOut",
         "Formatting",
         "Flowcontrol",
         "Coursework/Final",
@@ -20,7 +24,7 @@
         "Assignment",
         "Arrays",
         "ArraySorting",
-        "InOut"
+        "SQLConn"
     ],
     "code-runner.executorMap": {
         "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""

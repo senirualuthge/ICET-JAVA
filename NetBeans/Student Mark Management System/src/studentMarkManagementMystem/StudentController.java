@@ -94,6 +94,20 @@ class StudentController {
         String Sql="Select * from Studnet";   
         Connection connection = DBConnection.getInstance().getConnection();
         Statement stm = connection.createStatement();
+        ResultSet rst = stm.executeQuery(SQL);
+        
+        //DBConnection rst = DBConnection.getINstance().getConnection().createStatement().executeQuery("Select * from");
+        
+        Student[] studentArray=new Studnet;
+        while(rst.next()){
+            Studnet studnet = new Studnet (rst.getString("id"),rst getString("name"),rst getInt("PRFMarks"),rst getInt("DBMSMarks"));
+            Studnet[] tempArray = new Studnet[studnetArray.length+1];
+            for(int i =0;i<studnetArray.length;i++){
+            tempArray[i]=studnetArray[i];
+            }
+            studentArray = temArray;
+            studnetArray = 
+        }
             
     }
 }
