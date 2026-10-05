@@ -1,6 +1,9 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+// explicit single-type import: a same-package class named Box (OOP/demo5.java,
+// OOP/demo10.java) would otherwise shadow javax.swing.Box under the wildcard import
+import javax.swing.Box;
 
 /* =========================================================================
    iCET Student Management System
@@ -802,7 +805,9 @@ class UpdateStudentPage extends CoreScreen {
     private JTextField txtNewValue;
     private JButton btnUpdate;
     private JLabel lblNewPrompt;
-    private int currentIndex = -1;
+    // keyed by the immutable registration no, not an array index:
+    // removeStudentAt shifts CoreStore.students and would invalidate a cached index
+    private String currentRegNo = null;
 
     UpdateStudentPage(CoreManagementSystem app) {
         super(app);
@@ -852,7 +857,7 @@ class UpdateStudentPage extends CoreScreen {
     }
 
     public void refresh() {
-        currentIndex = -1;
+        currentRegNo = null;
         txtSearchId.setText("");
         txtNewValue.setText("");
         lblRegNo.setText("-");
@@ -877,7 +882,7 @@ class UpdateStudentPage extends CoreScreen {
 
         int idx = CoreStore.findStudentIndex(regNo);
         if (idx == -1) {
-            currentIndex = -1;
+            currentRegNo = null;
             setUpdateEnabled(false);
             lblRegNo.setText("-");
             lblName.setText("-");
@@ -886,7 +891,7 @@ class UpdateStudentPage extends CoreScreen {
             return;
         }
 
-        currentIndex = idx;
+        currentRegNo = regNo;
         CoreStudent s = CoreStore.students[idx];
         lblRegNo.setText(s.getRegNo());
         lblName.setText(s.getName());
@@ -895,7 +900,7 @@ class UpdateStudentPage extends CoreScreen {
     }
 
     private void updateStudent() {
-        if (currentIndex == -1) {
+        if (currentRegNo == null) {
             CoreGui.warn(this, "Please search a valid student first.");
             return;
         }
@@ -906,14 +911,22 @@ class UpdateStudentPage extends CoreScreen {
             return;
         }
 
-        CoreStudent s = CoreStore.students[currentIndex];
+        // re-resolve: the array may have shifted since the search
+        int idx = CoreStore.findStudentIndex(currentRegNo);
+        if (idx == -1) {
+            currentRegNo = null;
+            setUpdateEnabled(false);
+            CoreGui.warn(this, "This student no longer exists in the system.");
+            return;
+        }
+        CoreStudent s = CoreStore.students[idx];
 
         if (cmbField.getSelectedIndex() == 0) {
             // student names are allowed to be duplicated
             s.setName(newValue);
         } else {
             int dup = CoreStore.findStudentIndexByNIC(newValue);
-            if (dup != -1 && dup != currentIndex) {
+            if (dup != -1 && dup != idx) {
                 CoreGui.warn(this, "This NIC is already added to the system.");
                 return;
             }
@@ -1416,7 +1429,9 @@ class MarksUpdatePage extends CoreScreen {
     private JLabel lblCurrentMarks;
     private JTextField txtNewMarks;
     private JButton btnUpdate;
-    private int currentIndex = -1;
+    // keyed by the immutable registration no, not an array index:
+    // removeStudentAt shifts CoreStore.students and would invalidate a cached index
+    private String currentRegNo = null;
 
     MarksUpdatePage(CoreManagementSystem app, String module) {
         super(app);
@@ -1463,13 +1478,14 @@ class MarksUpdatePage extends CoreScreen {
     }
 
     public void refresh() {
-        currentIndex = -1;
+        currentRegNo = null;
         btnUpdate.setEnabled(false);
         txtNewMarks.setText("");
         lblRegNo.setText("-");
         lblName.setText("-");
         lblNic.setText("-");
         lblCurrentMarks.setText("-");
+        txtSearchId.setText("");
     }
 
     private void searchStudent() {
@@ -1481,13 +1497,13 @@ class MarksUpdatePage extends CoreScreen {
 
         int idx = CoreStore.findStudentIndex(regNo);
         if (idx == -1) {
-            currentIndex = -1;
+            currentRegNo = null;
             btnUpdate.setEnabled(false);
             CoreGui.warn(this, "This student not exist in the system.");
             return;
         }
 
-        currentIndex = idx;
+        currentRegNo = regNo;
         CoreStudent s = CoreStore.students[idx];
         lblRegNo.setText(s.getRegNo());
         lblName.setText(s.getName());
@@ -1501,7 +1517,7 @@ class MarksUpdatePage extends CoreScreen {
     }
 
     private void updateMarks() {
-        if (currentIndex == -1) {
+        if (currentRegNo == null) {
             CoreGui.warn(this, "Please search a valid student first.");
             return;
         }
@@ -1511,7 +1527,15 @@ class MarksUpdatePage extends CoreScreen {
             return;
         }
 
-        CoreStudent s = CoreStore.students[currentIndex];
+        // re-resolve: the array may have shifted since the search
+        int idx = CoreStore.findStudentIndex(currentRegNo);
+        if (idx == -1) {
+            currentRegNo = null;
+            btnUpdate.setEnabled(false);
+            CoreGui.warn(this, "This student no longer exists in the system.");
+            return;
+        }
+        CoreStudent s = CoreStore.students[idx];
         if (module.equals("PRF")) {
             s.setPrfMarks(marks);
         } else {
@@ -1525,7 +1549,7 @@ class MarksUpdatePage extends CoreScreen {
 }
 
 /* ================= MAIN WINDOW ================= */
-public class CoreManagementSystem extends JFrame {
+public final class CoreManagementSystem extends JFrame {
     private static final long serialVersionUID = 1L;
 
 

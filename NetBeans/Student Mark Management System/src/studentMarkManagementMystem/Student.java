@@ -13,7 +13,7 @@ public class Student{
 		this.dbmsMarks=dbmsMarks;
 	}
 	public String toString(){
-		return id+"\t"+name+"\t"+prfMarks+"\t"+dbmsMarks;
+		return id+","+name+","+prfMarks+","+dbmsMarks;
 	}
 	public String getId(){
 		return id;

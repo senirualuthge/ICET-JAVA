@@ -668,7 +668,7 @@ class ReportHomePage extends JPanel {
 }
 
 /* ---------------- 6. Main window ---------------- */
-public class ReportManagementSystem extends JFrame {
+public final class ReportManagementSystem extends JFrame {
     private static final long serialVersionUID = 1L;
 
 

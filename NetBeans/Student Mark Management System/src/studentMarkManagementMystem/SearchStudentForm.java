@@ -4,6 +4,7 @@
  */
 package studentMarkManagementMystem;
 
+import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 
 /**
@@ -158,15 +159,18 @@ public class SearchStudentForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStudentActionPerformed
-        String id=txtId.getText();
-        
-        Student student = AccessStudentCollection.getInstance().getStudentCollection().searchStudent(id);
-        if(student==null){
-            JOptionPane.showMessageDialog(this, "Not found");
-        }else{
-            txtName.setText(student.getName());
-            txtPrfMarks.setText(student.getPrfMarks()+"");
-            txtDbmsMarks.setText(student.getDbmsMarks()+"");
+        try {
+            String id=txtId.getText();
+            Student student = StudentController.searchStudent(id);
+            if(student==null){
+                JOptionPane.showMessageDialog(this, "Student not found...");
+            }else{
+                txtName.setText(student.getName());
+                txtPrfMarks.setText(student.getPrfMarks()+"");
+                txtDbmsMarks.setText(student.getDbmsMarks()+"");
+            }
+        } catch (FileNotFoundException ex) {
+            System.getLogger(SearchStudentForm.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btnSearchStudentActionPerformed
 
