@@ -26,8 +26,7 @@
         "ArraySorting",
         "SQLConn"
     ],
-    "code-runner.executorMap": {
-        "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
+    "code-runner.executorMap": {            "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
     },
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
@@ -35,13 +34,13 @@
     "code-runner.respectShebang": false,
     "java.configuration.runtimes": [
         {
-            "name": "JavaSE-21",
-            "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+            "name": "JavaSE-25",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home",
             "default": true
         },
         {
-            "name": "JavaSE-25",
-            "path": "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home"
+            "name": "JavaSE-21",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
         },
         {
             "name": "JavaSE-27",
