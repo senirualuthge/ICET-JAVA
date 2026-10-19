@@ -1,40 +1,44 @@
-class A{
-	private static A ob;
-    
-	private A(){}
-    
-	public static A getInstance(){
-		if(ob==null){
-			ob=new A();
+// Singleton demo. The singleton types are named SingletonA/SingletonB rather
+// than plain A/B so they do not collide with A.java in OOP/ - both live in the
+// default package, and two top-level classes called A cannot coexist.
+
+class SingletonA {
+	private static SingletonA ob;
+
+	private SingletonA() {
+	}
+
+	public static SingletonA getInstance() {
+		if (ob == null) {
+			ob = new SingletonA();
 		}
 		return ob;
-    }
-}
-   
-class B{
-    private B(){}
-
-    private static B oa;
-
-        public static B getInstance(){
-		    if(oa==null){
-		    	oa=new B();
-		    }
-		    return oa;
-        }
+	}
 }
 
+class SingletonB {
+	private static SingletonB oa;
 
+	private SingletonB() {
+	}
 
-class sing1{
+	public static SingletonB getInstance() {
+		if (oa == null) {
+			oa = new SingletonB();
+		}
+		return oa;
+	}
+}
+
+class sing1 {
 	public static void main(String[] args) {
-		//A a1=new A(); //Illegal
-		A a1=A.getInstance();
-		A a2=A.getInstance();
-		System.out.println(a1==a2); //true
+		// SingletonA a1 = new SingletonA(); // Illegal: constructor is private
+		SingletonA a1 = SingletonA.getInstance();
+		SingletonA a2 = SingletonA.getInstance();
+		System.out.println(a1 == a2); // true
 
-        B b1= B.getInstance();
-		B b2= B.getInstance();
-		System.out.println(b1==b2); //true
+		SingletonB b1 = SingletonB.getInstance();
+		SingletonB b2 = SingletonB.getInstance();
+		System.out.println(b1 == b2); // true
 	}
 }
