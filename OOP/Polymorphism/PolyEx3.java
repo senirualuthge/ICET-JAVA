@@ -3,7 +3,7 @@ package Polymorphism;
 import java.util.*;
 
 // Exercise 3 - same as exercise 2, plus a device id in every message.
-class Demo {
+class PolyEx3 {
 
 	static class Alarm {
 		private String id;

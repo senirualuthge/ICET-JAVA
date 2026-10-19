@@ -90,24 +90,26 @@ class StudentController {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public static Student[] getAllStudent() {
-        String Sql="Select * from Studnet";   
+    public static Student[] getAllStudent() throws ClassNotFoundException, SQLException {
+        String Sql = "Select * from Student";
+        Student[] studentArray = new Student[0];
+
+        //The connection comes from the DBConnection singleton and is shared, so it
+        //is deliberately left open; only the statement and result set are closed.
         Connection connection = DBConnection.getInstance().getConnection();
-        Statement stm = connection.createStatement();
-        ResultSet rst = stm.executeQuery(SQL);
-        
-        //DBConnection rst = DBConnection.getINstance().getConnection().createStatement().executeQuery("Select * from");
-        
-        Student[] studentArray=new Studnet;
-        while(rst.next()){
-            Studnet studnet = new Studnet (rst.getString("id"),rst getString("name"),rst getInt("PRFMarks"),rst getInt("DBMSMarks"));
-            Studnet[] tempArray = new Studnet[studnetArray.length+1];
-            for(int i =0;i<studnetArray.length;i++){
-            tempArray[i]=studnetArray[i];
+        try (Statement stm = connection.createStatement();
+                ResultSet rst = stm.executeQuery(Sql)) {
+            while (rst.next()) {
+                Student student = new Student(rst.getString("id"), rst.getString("name"),
+                        rst.getInt("PRFMarks"), rst.getInt("DBMSMarks"));
+                Student[] tempStudentArray = new Student[studentArray.length + 1];
+                for (int i = 0; i < studentArray.length; i++) {
+                    tempStudentArray[i] = studentArray[i];
+                }
+                tempStudentArray[tempStudentArray.length - 1] = student;
+                studentArray = tempStudentArray;
             }
-            studentArray = temArray;
-            studnetArray = 
         }
-            
+        return studentArray;
     }
 }

@@ -4,7 +4,7 @@ import java.util.*;
 
 // Exercise 2 - after adding the Splitter: still no polymorphism, but the
 // "add a new device" cost is now visible.
-class PloyEx2AddNewDevice {
+class PolyEx2AddNewDevice {
 
 	static class Alarm {
 		public void operateAlarm(int waterLevel) {
