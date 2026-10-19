@@ -32,7 +32,7 @@ import java.util.Random;
  * class does not demonstrate classic object-based encapsulation on its own.
  * =====================================================================
  */
-class TaskEx1 {   // [OOP: Abstraction] a class = blueprint for data + behaviour
+class TaskEg1 {   // [OOP: Abstraction] a class = blueprint for data + behaviour
 
     // Water level that triggers the alert system
     static final int ALERT_LEVEL = 75;   // [OOP: Encapsulation] a named constant replaces a magic number
