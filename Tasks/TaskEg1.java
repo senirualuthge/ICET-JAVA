@@ -42,7 +42,7 @@ class TaskEg1 {   // [OOP: Abstraction] a class = blueprint for data + behaviour
     // UI components
     // [OOP: Composition] TaskEx1 "has-a" set of Swing objects; their internal state
     // stays private and is changed only via methods such as setText()/setValue().
-    static final JLabel levelLabel = new JLabel("0 %", SwingConstants.CENTER);            // [OOP: Instantiation] `new` builds an object
+    static final JLabel levelLabel = new JLabel("100 %", SwingConstants.CENTER);            // [OOP: Instantiation] `new` builds an object
     static final JProgressBar levelBar = new JProgressBar(0, 100);                        // [OOP: Inheritance] JProgressBar comes from the Swing hierarchy
     static final JLabel alarmLabel = new JLabel("ALARM : OFF", SwingConstants.CENTER);
     static final JLabel splitterLabel = new JLabel("SPLITTER : CLOSED", SwingConstants.CENTER);
@@ -153,7 +153,7 @@ class TaskEg1 {   // [OOP: Abstraction] a class = blueprint for data + behaviour
         boolean alert = waterLevel >= ALERT_LEVEL;
 
         levelBar.setValue(waterLevel);
-        levelLabel.setText(waterLevel + " %");
+        levelLabel.setText(waterLevel + " mm");
 
         // alarm : ON when 75 or above, OFF when below
         if (alert) {
@@ -186,7 +186,7 @@ class TaskEg1 {   // [OOP: Abstraction] a class = blueprint for data + behaviour
     // [OOP: Abstraction] a private-ish helper method: callers ask for the effect, not the steps.
     static void sendSms(boolean alert) {
         String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
-        String message = "Water level updated to " + waterLevel + "%"
+        String message = "Water level updated to " + waterLevel + "mm"
                 + " | Alarm: " + (alert ? "ON" : "OFF")
                 + " | Splitter: " + (alert ? "OPEN" : "CLOSED");
 
