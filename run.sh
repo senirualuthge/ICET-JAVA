@@ -18,10 +18,24 @@ cd "$WORKSPACE" || exit 1
 
 MAIN_CLASS="${1:-}"
 if [[ -z "$MAIN_CLASS" ]]; then
-	echo "usage: bash run.sh <MainClassName>" >&2
+	echo "usage: bash run.sh <MainClassName | path/to/File.java>" >&2
 	exit 1
 fi
 shift || true
+
+# An explicit *.java path pins the exact file. Different folders can hold files
+# with the same name (OOP/Demo3.java and "Event Handling/Demo3.java"), and the
+# name search below would otherwise run whichever source path comes first.
+# Code Runner and tasks.json pass ${file} for exactly this reason.
+EXPLICIT_FILE=""
+if [[ "$MAIN_CLASS" == *.java ]]; then
+	if [[ -f "$MAIN_CLASS" ]]; then
+		EXPLICIT_FILE="$(cd "$(dirname "$MAIN_CLASS")" && pwd)/$(basename "$MAIN_CLASS")"
+	elif [[ -f "$WORKSPACE/$MAIN_CLASS" ]]; then
+		EXPLICIT_FILE="$WORKSPACE/$MAIN_CLASS"
+	fi
+	MAIN_CLASS="$(basename "$MAIN_CLASS" .java)"
+fi
 
 # --- workspace layout (read from .vscode/settings.json) -----------------------
 OUT_DIR="$WORKSPACE/.vscode/out"
@@ -119,8 +133,9 @@ for jar in "$WORKSPACE"/lib/*.jar; do
 done
 
 # --- locate the source file --------------------------------------------------
-SOURCE_FILE=""
+SOURCE_FILE="$EXPLICIT_FILE"
 for p in "${CFG_SOURCE_PATHS[@]}"; do
+	[[ -n "$SOURCE_FILE" ]] && break
 	[[ -d "$p" ]] || continue
 	if [[ -f "$p/$MAIN_CLASS.java" ]]; then
 		SOURCE_FILE="$p/$MAIN_CLASS.java"

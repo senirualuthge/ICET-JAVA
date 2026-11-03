@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class MyFrame extends JFrame{
+class MouseListenerFrame extends JFrame{
 	JButton btnExit;
 	
-	MyFrame(){
+	MouseListenerFrame(){
 		setSize(300,300);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -25,8 +25,8 @@ class ButtonmouseListner implements ActionListener{
 	}
 }
 
-class MOuseListner {
+class MouseListner {
 	public static void main(String args[]){
-		new MyFrame().setVisible(true);
+		new MouseListenerFrame().setVisible(true);
 	}
 }

@@ -4,7 +4,7 @@
         {
             "label": "Run Java File",
             "type": "shell",
-            "command": "bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\"",
+            "command": "bash \"${workspaceFolder}/run.sh\" \"${file}\"",
             "group": {
                 "kind": "build",
                 "isDefault": true

@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-class MyFrame extends JFrame{
+class Demo2Frame extends JFrame{
 	JTextField txtTitle;
 	JButton btnSetTitle;
 	
-	MyFrame(){
+	Demo2Frame(){
 		setSize(300,300);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -17,20 +17,24 @@ class MyFrame extends JFrame{
 			
 		btnSetTitle=new JButton("Set Title");
 		btnSetTitle.setFont(new Font("",1,20));
-		btnSetTitle.addActionListener(new ButtonAction());
+		btnSetTitle.addActionListener(new Demo2ButtonAction(this));
 		add(btnSetTitle);
 	}
 }
-class ButtonAction implements ActionListener{
-	MyFrame myFrame;
+class Demo2ButtonAction implements ActionListener{
+	Demo2Frame demo2Frame;
+	Demo2ButtonAction(Demo2Frame demo2Frame){
+		this.demo2Frame=demo2Frame;
+	}
 	public void actionPerformed(ActionEvent evt){
-		String title=myFrame.txtTitle.getText();
-		myFrame.setTitle(title);
+		String title=demo2Frame.txtTitle.getText();
+		demo2Frame.setTitle(title);
 	}
 }
-class Demo2{
+// Named EventDemo2 because OOP/Demo2.java already declares Demo2 in this
+// default package and both compile into the same .vscode/out folder.
+class EventDemo2{
 	public static void main(String args[]){
-		new MyFrame().setVisible(true);
+		new Demo2Frame().setVisible(true);
 	}
 }
-

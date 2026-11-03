@@ -19,15 +19,16 @@
         "InOut",
         "Formatting",
         "Flowcontrol",
+        "Event Handling",
         "Coursework",
         "Casting",
         "Basics",
         "Assignment",
         "Arrays",
         "ArraySorting",
-        "Event Handling"
+        "Garbage Collection"
     ],
-    "code-runner.executorMap": {            "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${fileBasenameNoExtension}\""
+    "code-runner.executorMap": {            "java": "JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home bash \"${workspaceFolder}/run.sh\" \"${file}\""
     },
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
