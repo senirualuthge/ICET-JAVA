@@ -6,7 +6,7 @@ class SwingFont {
         JFrame f0 = new JFrame();
         f0.setSize(300, 300);
         f0.setTitle("Calculator0");
-        f0.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        f0.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f0.setLayout(new FlowLayout());
 
         JButton b0 = new JButton();

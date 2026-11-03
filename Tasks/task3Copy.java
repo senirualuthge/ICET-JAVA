@@ -1,8 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.event.ActionEvent;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -11,12 +8,11 @@ import java.util.Random;
 class task3copy{
 
     static final int Alert_Lvl= 75;
-    static int waterLevel =0;
+    static int waterLevel = 0;
     static final Random RANDOM = new Random();
 
 
     //UI
-
    static final JLabel lvlLabel = new JLabel("0mm", SwingConstants.CENTER);
    static final JProgressBar lvlBar = new JProgressBar(0,100);
    static final JLabel alarmLabel = new JLabel("ALARM:OFF ",SwingConstants.CENTER);
@@ -30,11 +26,69 @@ class task3copy{
     //     randomizeWaterLevel();
     // };
 
+
+    //Timeout Randomizer
     static{
         autoTimer = new Timer(1000, e -> randomizeWaterLevel());  
+         
+    }
+
+    static void randomizeWaterLevel(){
+        waterLevel = RANDOM.nextInt(101);
+        applyWaterLevel();
+    }
+    
+    //Watee Level
+    static void applyWaterLevel(){
+        boolean alert = waterLevel >= Alert_Lvl;
+
+        lvlBar.setValue(waterLevel);
+        lvlLabel.setText(waterLevel+"mm");
+
+        //Alarm Section
+        if (alert){
+            alarmLabel.setText("ALARM : ON");
+            alarmLabel.setBackground(Color.RED);
+            alarmLabel.setForeground(Color.WHITE);
+            lvlBar.setForeground(Color.RED);
+        }
+        else{
+            alarmLabel.setText("ALARM : OFF");
+            alarmLabel.setBackground(new Color(220, 220, 220));
+            alarmLabel.setForeground(Color.DARK_GRAY);
+            lvlBar.setForeground(new Color(0, 130, 0));
+        }
+
+        //Splitter Section
+        if(alert){
+           splitterLabel.setText("SPLITTER : OPEN");
+            splitterLabel.setBackground(new Color(0, 130, 0));
+            splitterLabel.setForeground(Color.WHITE);
+        } 
+        else {
+            splitterLabel.setText("SPLITTER : CLOSED");
+            splitterLabel.setBackground(new Color(220, 220, 220));
+            splitterLabel.setForeground(Color.DARK_GRAY);
+        }
+
+        sendSms(alert); 
+        
+
+    }   
+    //Sms Text Print
+    static void sendSms(boolean alert) {
+        String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        String message = "Water level updated to " + waterLevel + "mm"
+                + " | Alarm: " + (alert ? "ON" : "OFF")
+                + " | Splitter: " + (alert ? "OPEN" : "CLOSED");
+
+        System.out.println("[SMS " + time + "] " + message);
+        smsArea.append("[SMS " + time + "] " + message + "\n");
+        smsArea.setCaretPosition(smsArea.getDocument().getLength());
     }
 
     public static void main(String[] args) {
+
         JFrame frame = new JFrame("Water Level Monitor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout(10,10));
@@ -72,6 +126,7 @@ class task3copy{
         randomButton.setFont(new Font("SansSerif",Font.BOLD,14));
         randomButton.addActionListener(e -> randomizeWaterLevel());
 
+        //J CheckBox
         JCheckBox autoBox = new JCheckBox("Randomize");
         autoBox.setFont(new Font("SansSerif",Font.BOLD,14));
         autoBox.addActionListener(e ->{
@@ -83,6 +138,7 @@ class task3copy{
             }
         });
 
+        //J BUtton
         JButton resetButton = new JButton("Reset");
         resetButton.setFont(new Font("SansSerif",Font.PLAIN,12));
         resetButton.addActionListener(e ->{
@@ -111,60 +167,6 @@ class task3copy{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-    }
-
-    static void randomizeWaterLevel(){
-        waterLevel = RANDOM.nextInt(101);
-        applyWaterLevel();
-    }
-    
-    static void applyWaterLevel(){
-        boolean alert = waterLevel >= Alert_Lvl;
-
-        lvlBar.setValue(waterLevel);
-        lvlLabel.setText(waterLevel+"mm");
-
-        if (alert){
-            alarmLabel.setText("ALARM : ON");
-            alarmLabel.setBackground(Color.RED);
-            alarmLabel.setForeground(Color.WHITE);
-            lvlBar.setForeground(Color.RED);
-        }
-        else{
-            alarmLabel.setText("ALARM : OFF");
-            alarmLabel.setBackground(new Color(220, 220, 220));
-            alarmLabel.setForeground(Color.DARK_GRAY);
-            lvlBar.setForeground(new Color(0, 130, 0));
-        }
-        if(alert){
-           splitterLabel.setText("SPLITTER : OPEN");
-            splitterLabel.setBackground(new Color(0, 130, 0));
-            splitterLabel.setForeground(Color.WHITE);
-        } else {
-            splitterLabel.setText("SPLITTER : CLOSED");
-            splitterLabel.setBackground(new Color(220, 220, 220));
-            splitterLabel.setForeground(Color.DARK_GRAY);
-        }
-
-        sendSms(alert); 
-        
-
-    }
-    static void sendSms(boolean alert) {
-        String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
-        String message = "Water level updated to " + waterLevel + "mm"
-                + " | Alarm: " + (alert ? "ON" : "OFF")
-                + " | Splitter: " + (alert ? "OPEN" : "CLOSED");
-
-        System.out.println("[SMS " + time + "] " + message);
-        smsArea.append("[SMS " + time + "] " + message + "\n");
-        smsArea.setCaretPosition(smsArea.getDocument().getLength());
-    }
-
-
-
-
-    
-
+    } 
 
 }
